@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="heroApp">
+<head>
+  <meta charset="utf-8">
+  <title>Super Heroes</title>
+  <script src="vendors/angular/angular.min.js"></script>
+  <script src="assets/scripts/client.min.js"></script>
+  <link rel="stylesheet" href="vendors/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+<body class="container" ng-controller="HeroController as hc">
+
+
+  <div class="jumbotron">
+
+    <h1>Super Heroes</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+
+
+    <label>Alias:</label>
+    <input type="text" ng-model="hc.newHero.alias" />
+
+    <label>First Name:</label>
+    <input type="text" ng-model="hc.newHero.first_name" /><br />
+
+    <label>Last Name:</label>
+    <input type="text" ng-model="hc.newHero.last_name"/>
+
+    <label>City:</label>
+    <input type="text" ng-model="hc.newHero.city"/><br />
+
+    <label>Power Name:</label>
+    <!-- <select ng-model="hc.answer" ng-options="thing for thing in options" /> -->
+    <button ng-click="hc.getHero()">Enter Hero</button>
+
+
+
+  </div>
+
+<div class="col-md-6">
+<!-- View entered superheroes from database -->
+
+<div ng-repeat="hero in hc.heroes">
+  Alias: {{hero.alias}}
+  First Name:  {{hero.first_name}}
+  Last Name: {{hero.last_name}}
+  City: {{hero.city}}
+  Power: {{hero.power_name}}
+
+  <button ng-click="deleteHero()">Delete Hero</button>
+</div>
+
+
+</div>
+
+
+  </div>
+</body>
+</html>
